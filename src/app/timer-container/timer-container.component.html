@@ -1,0 +1,17 @@
+<div class="time-tracker-list">
+  <app-timer-list
+    *ngFor="let tracker of timeTrackers"
+    [timeTracker]="tracker"
+    (trackerAction)="trackerAction($event)"
+    (deleteTracker)="onDeleteTracker($event)"
+  ></app-timer-list>
+</div>
+
+<button class="create-btn" (click)="openStringInputDialog()">+</button>
+
+<!-- String Input Dialog -->
+<app-create-timer-form
+  *ngIf="formDialog"
+  (closeCreateForm)="openStringInputDialog()"
+  (stringSubmitted)="onStringSubmitted($event)"
+></app-create-timer-form>

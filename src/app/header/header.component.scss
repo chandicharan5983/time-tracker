@@ -1,0 +1,51 @@
+/* header.component.scss */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    height: 50px;
+  }
+  
+  .header-left {
+    flex: 1;
+    height: 50px;
+  }
+  
+  .header-right {
+    font-size: 20px;
+    margin-right: 20px;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    display: inline-flex;
+
+  }
+
+  .user-icon {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-color: blue;
+    border: groove;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* If you are using the <img> tag for the user icon, style it like this */
+  .user-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  /* Style for the 'img' element */
+  .header-left img {
+    max-height: 100%;
+    width: 200px;
+  }
+  

@@ -1,0 +1,24 @@
+<div class="dialog">
+  <div class="dialog-header">
+    <span class="close-icon" (click)="onClose()">&#10006;</span>
+  </div>
+  <div class="dialog-content">
+    <h2>Enter a String</h2>
+    <form (ngSubmit)="onSubmit()" #stringForm="ngForm">
+      <div class="form-group">
+        <label for="inputString">String:</label>
+        <input
+          type="text"
+          id="inputString"
+          name="inputString"
+          [(ngModel)]="inputString"
+          required
+        />
+      </div>
+      <div class="form-actions">
+        <button type="submit">Submit</button>
+        <button type="button" (click)="onClose()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

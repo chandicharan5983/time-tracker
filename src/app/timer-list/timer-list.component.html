@@ -1,0 +1,23 @@
+<div class="time-tracker">
+  <div class="left-side">
+    <div class="timer-name">{{ timeTracker.name }}</div>
+    <div class="history">
+      <h4>History</h4>
+      <ul>
+        <li *ngFor="let entry of timeTracker.history">{{ entry }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="cross-icon" (click)="onDelete()">&#10006;</div>
+    <div class="timer">{{ timeTracker.timer }}</div>
+    <button
+      class="dynamic-bottom"
+      [class.btn-active]="!timeTracker.actionBottom"
+      [class.btn-inactive]="timeTracker.actionBottom"
+      (click)="timerAction(timeTracker)"
+    >
+      {{ timeTracker.actionBottom ? "Stop" : "Start" }}
+    </button>
+  </div>
+</div>

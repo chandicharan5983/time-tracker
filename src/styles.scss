@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Hide scrollbars for the body */
+    background-color: whitesmoke;
+  }
+  
+  /* Header Styles */
+  app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: flex;
+    // padding: 10px;
+  }
+
+  app-timer-container {
+    // margin-top: 50px;
+    top: 50px;
+  }
