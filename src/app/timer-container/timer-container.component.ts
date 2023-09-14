@@ -51,6 +51,7 @@ export class TimerContainerComponent implements OnInit {
     timer.id = this.getCurrentTime()?.timestamp;
     timer.name = inputString;
     this.timeTrackers.unshift(timer);
+    localStorage.setItem('stopwatch', JSON.stringify(this.timeTrackers));
   }
 
   trackerAction(event: TimeTracker) {
