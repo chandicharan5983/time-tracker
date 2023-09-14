@@ -27,7 +27,6 @@ export class TimerContainerComponent implements OnInit {
   }
 
   onDeleteTracker(id: number): void {
-    // Implement deletion logic here
     this.timeTrackers = this.timeTrackers.filter((item) => item.id !== id);
     localStorage.setItem('stopwatch', JSON.stringify(this.timeTrackers));
   }

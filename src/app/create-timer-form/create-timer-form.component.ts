@@ -11,18 +11,12 @@ export class CreateTimerFormComponent {
   inputString: string = '';
 
   onSubmit(): void {
-    // Emit the input string to the parent component
     this.stringSubmitted.emit(this.inputString);
-
-    // Reset the input field
     this.inputString = '';
-
-    // Close the dialog (implement dialog closing logic)
     this.closeDialog();
   }
 
   onClose(): void {
-    // Close the dialog (implement dialog closing logic)
     this.closeDialog();
   }
 
