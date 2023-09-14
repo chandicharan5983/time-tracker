@@ -31,3 +31,17 @@
   right: 20px;
   bottom: 20px;
 }
+
+.img-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  height: 80vh; /* This ensures the container takes up the full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+img {
+  max-width: 100%; /* Make sure the image doesn't exceed its container's width */
+  max-height: 100%; /* Make sure the image doesn't exceed its container's height */
+}

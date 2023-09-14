@@ -1,10 +1,15 @@
 <div class="time-tracker-list">
-  <app-timer-list
-    *ngFor="let tracker of timeTrackers"
-    [timeTracker]="tracker"
-    (trackerAction)="trackerAction($event)"
-    (deleteTracker)="onDeleteTracker($event)"
-  ></app-timer-list>
+  <ng-container *ngIf="timeTrackers?.length !== 0">
+    <app-timer-list
+      *ngFor="let tracker of timeTrackers"
+      [timeTracker]="tracker"
+      (trackerAction)="trackerAction($event)"
+      (deleteTracker)="onDeleteTracker($event)"
+    ></app-timer-list>
+  </ng-container>
+  <div class="img-body" *ngIf="timeTrackers?.length === 0">
+    <img class="image" src="./assets/images/no-data.jpg" alt="" />
+  </div>
 </div>
 
 <button class="create-btn" (click)="openStringInputDialog()">+</button>
