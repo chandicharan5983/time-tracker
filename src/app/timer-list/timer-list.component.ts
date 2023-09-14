@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { TimeTracker } from '../models/time-tracker.model';
 import { Subscription, interval } from 'rxjs';
+import { TimerService } from '../services/timer.service';
 
 @Component({
   selector: 'app-timer-list',
@@ -31,6 +32,8 @@ export class TimerListComponent implements OnInit, OnDestroy {
   displayTime: string = '00:00:00';
   private timerSubscription!: Subscription;
 
+  constructor(private timerService: TimerService) {}
+
   ngOnInit() {}
 
   ngOnDestroy() {
@@ -44,22 +47,8 @@ export class TimerListComponent implements OnInit, OnDestroy {
       const currentTime = Date.now();
       const elapsedTime = currentTime - this.timeTracker.startTime;
 
-      this.displayTime = this.formatElapsedTime(elapsedTime);
+      this.displayTime = this.timerService?.formatElapsedTime(elapsedTime);
     });
-  }
-
-  private formatElapsedTime(elapsedTime: number): string {
-    const seconds = Math.floor(elapsedTime / 1000);
-    const hh = Math.floor(seconds / 3600);
-    const mm = Math.floor((seconds % 3600) / 60);
-    const ss = seconds % 60;
-    return `${this.formatDigit(hh)}:${this.formatDigit(mm)}:${this.formatDigit(
-      ss
-    )}`;
-  }
-
-  private formatDigit(value: number): string {
-    return value < 10 ? `0${value}` : value.toString();
   }
 
   onDelete(): void {
