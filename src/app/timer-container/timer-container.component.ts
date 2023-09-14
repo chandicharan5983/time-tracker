@@ -50,7 +50,6 @@ export class TimerContainerComponent implements OnInit {
     };
     timer.id = this.getCurrentTime()?.timestamp;
     timer.name = inputString;
-    console.log(timer);
     this.timeTrackers.unshift(timer);
   }
 
@@ -70,7 +69,6 @@ export class TimerContainerComponent implements OnInit {
       (el: TimeTracker) => el?.id === event?.id
     );
     if (index >= 0) {
-      // this.timeTrackers
       this.timeTrackers[index] = this.getUpdatedTimer(this.timeTrackers[index]);
     }
     localStorage.setItem('stopwatch', JSON.stringify(this.timeTrackers));
@@ -108,7 +106,7 @@ export class TimerContainerComponent implements OnInit {
       timer.startTime = this.getCurrentTime()?.timestamp;
       const historyString = `Started the timer at ${
         this.getCurrentTime()?.getDate
-      } ${this.getCurrentTime()?.currentTime} (active)`;
+      } ${this.getCurrentTime()?.currentTime}`;
       if (
         timer.history.includes(
           'No History Found, Click on the start button to track the timer.'
@@ -117,7 +115,7 @@ export class TimerContainerComponent implements OnInit {
         timer.history.pop();
       }
       timer.history.unshift(historyString);
-      timer.actionBottom = 0;
+      timer.actionBottom = 1;
     } else {
       timer.endTime = this.getCurrentTime()?.timestamp;
       const historyString = `Started the timer at ${
@@ -126,7 +124,7 @@ export class TimerContainerComponent implements OnInit {
         this.getCurrentTime()?.getDate
       } ${this.getCurrentTime()?.currentTime}`;
       timer.history.unshift(historyString);
-      timer.actionBottom = 1;
+      timer.actionBottom = 0;
     }
     return timer;
   }

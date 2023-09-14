@@ -4,13 +4,16 @@
     <div class="history">
       <h4>History</h4>
       <ul>
-        <li *ngFor="let entry of timeTracker.history">{{ entry }}</li>
+        <li *ngFor="let entry of timeTracker.history; let i = index">
+          {{ entry }}
+          {{ i === 0 && timeTracker.actionBottom ? "(active)" : "" }}
+        </li>
       </ul>
     </div>
   </div>
   <div class="right-side">
     <div class="cross-icon" (click)="onDelete()">&#10006;</div>
-    <div class="timer">{{ timeTracker.timer }}</div>
+    <div class="timer">{{ displayTime }}</div>
     <button
       class="dynamic-bottom"
       [class.btn-active]="!timeTracker.actionBottom"

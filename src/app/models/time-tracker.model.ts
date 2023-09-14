@@ -4,6 +4,6 @@ export interface TimeTracker {
   history: string[];
   timer: string;
   actionBottom: string | number;
-  startTime?: number;
+  startTime: number;
   endTime?: number;
 }
