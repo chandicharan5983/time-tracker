@@ -23,6 +23,7 @@ export class TimerListComponent implements OnInit, OnDestroy {
 
     if (this.timeTracker.actionBottom) {
       this.setTimerUpdate();
+      // checking
     }
   }
   @Output()
